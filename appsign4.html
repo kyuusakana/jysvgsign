@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			html,body{ margin: 0;}
+			body{ background: #505050; user-select: none; -moz-user-select: none; -ms-user-select: none; -webkit-user-select: none; -khtml-user-select: none;}
+			i{ display: inline-block; font-style: normal;}
+			button{ font-size: 16px; color: #333333; border: none; background: transparent; vertical-align:middle;cursor:pointer; outline: none;}
+			.icon_20{ width: 20px; height: 20px; background-image: url(images/icon_20.png);}
+			.svgsignbox{ position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; height: 100%; margin: auto; background: #ffffff; overflow: hidden; cursor: default;}
+			.svgsign{ width: 100%; height: 100%;}
+			#outsvg{ position: relative; top: 0; width: 100%; height: 100%;}
+			.hint{ position: absolute; bottom: 0; left: 20px; right: 20px; padding: 10px 0; font-size: 14px; color: #aaaaaa; border-top: 1px dashed #cccccc; text-align: center;}
+			.canvas{ position: absolute; top: 0; left: 0;}
+			.btnbox{ position: absolute; top: 0; left: 0;}
+			.btnbox>div{ position: relative; float: left; width: 40px; height: 40px;}
+			.btnbox>div:hover::after{ top: 40px; left: 10px;}
+			.btnbox .btn{ width: 40px; height: 40px; padding: 0;}
+			.btnbox .btn:hover::after{ top: 40px; left: 10px;}
+			.btnbox .btn:active i{ transform: scale(0.8,0.8);}
+			.btnbox .btn i{ display: block; margin: 10px;}
+			.btnbox .celect{ display: none; position: absolute; top: 40px; left: 0; width: 150px; padding: 10px 5px; border: 1px solid #999999; background: #ffffff; text-align: left;}
+			.btnbox .celect span{ font-size: 14px; color: #666666; white-space: nowrap;}
+			.colorbtn .btn i{ background-position: -0px -140px;}
+			.colorbtn .celect button{ float: left; width: 40px; height: 20px; margin: 5px;}
+			.typebtn .btn i{ background-position: -100px -140px;}
+			.typebtn .celect button{ float: left; width: 140px; height: 20px; margin: 5px; padding: 0;}
+			.typebtn .celect button i{ width: 140px;}
+			.sizebtn .btn i{ background-position: -140px -140px;}
+			.sizebtn .celect button{ float: left; width: 20px; height: 20px; margin: 5px;}
+			.sizebtn .celect button i{ display: block; margin: auto; background: #333333; border-radius: 50%;}
+			.undobtn .btn i{ background-position: -180px -140px;}
+			.clearbtn .btn i{ background-position: -60px -140px;}
+		</style>
+		<meta charset="UTF-8">
+		<meta name="viewport" content=" width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>手写签字</title>
+		<script src="http://libs.baidu.com/jquery/2.1.1/jquery.js"></script>
+		<script src="js/jysvgsign.js"></script>
+		<script>
+			$(function(){
+				$(jysvgsign());
+			});
+		</script>
+	</head>
+	<body>
+		<div class="svgsignbox">
+			<div class="hint">在空白处绘制你的手写签名&emsp;手机横屏效果更好哦</div>
+			<div class="svgsign"><svg id="outsvg" xmlns="http://www.w3.org/2000/svg"></svg></div>
+		</div>
+		<div class="zzz" style="position: fixed; top: 40px; left: 0; width: 100%; word-break: break-all; font-size: 14px;"></div>
+		<input class="xxx" type="text" value="" style=" display: none; position: fixed; bottom: 0px; left: 0; width: 100%; font-size: 14px;">
+		<div class="btnbox">
+			<div class="colorbtn">
+				<button class="jy_title btn" data-title="颜色"><i class="icon_20"></i></button>
+				<div class="celect">
+					<span>&ensp;颜色</span><br>
+					<button style=" background: #333333;"></button>
+					<button style=" background: #3399ff;"></button>
+					<button style=" background: #ffaa33;"></button>
+					<button style=" background: #00bb66;"></button>
+					<button style=" background: #ee5555;"></button>
+					<button style=" background: #772d00;"></button>
+					<button style=" background: #ff7799;"></button>
+					<button style=" background: #aaff33;"></button>
+					<button style=" background: #7744ee;"></button>
+				</div>
+			</div>
+			<div class="typebtn">
+				<button class="jy_title btn" data-title="笔迹"><i class="icon_20"></i></button>
+				<div class="celect">
+					<span>&ensp;笔迹</span><br>
+					<button data-btn="type1"><i class="icon_20" style="background-position: -200px -140px;"></i></button>
+					<button data-btn="type2"><i class="icon_20" style="background-position: -200px -160px;"></i></button>
+				</div>
+			</div>
+			<div class="sizebtn">
+				<button class="jy_title btn" data-title="尺寸"><i class="icon_20"></i></button>
+				<div class="celect">
+					<span>&ensp;尺寸</span><br>
+					<button><i style=" width: 2px; height: 2px;"></i></button>
+					<button><i style=" width: 4px; height: 4px;"></i></button>
+					<button><i style=" width: 6px; height: 6px;"></i></button>
+					<button><i style=" width: 8px; height: 8px;"></i></button>
+					<button><i style=" width: 10px; height: 10px;"></i></button>
+				</div>
+			</div>
+			<div class="undobtn">
+				<button class="jy_title btn" data-title="撤销"><i class="icon_20"></i></button>
+			</div>
+			<div class="clearbtn">
+				<button class="jy_title btn" data-title="清空"><i class="icon_20"></i></button>
+			</div>
+		</div>
+	</body>
+</html>
