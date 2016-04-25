@@ -9,8 +9,10 @@ $(jysvgsign());
 */
 /*-----手写签名-----*/
 function jysvgsign(){
-	var jysvgcon='<div class="hint">在这块区域内绘制你的手写签名</div><div class="svgbox"><svg id="outsvg" xmlns="http://www.w3.org/2000/svg"></svg></div><div class="btnbox"><div class="colorbtn"><button class="jy_title btn" data-title="颜色"><i class="icon_20"></i></button><div class="celect"><span>&ensp;颜色</span><br><button style=" background: #333333;"></button><button style=" background: #3399ff;"></button><button style=" background: #ffaa33;"></button><button style=" background: #00bb66;"></button><button style=" background: #ee5555;"></button><button style=" background: #772d00;"></button><button style=" background: #ff7799;"></button><button style=" background: #aaff33;"></button><button style=" background: #7744ee;"></button></div></div><div class="typebtn"><button class="jy_title btn" data-title="笔迹"><i class="icon_20"></i></button><div class="celect"><span>&ensp;笔迹</span><br><button data-btn="type1"><i class="icon_20" style="background-position: -200px -140px;"></i></button><button data-btn="type2"><i class="icon_20" style="background-position: -200px -160px;"></i></button></div></div><div class="sizebtn"><button class="jy_title btn" data-title="尺寸"><i class="icon_20"></i></button><div class="celect"><span>&ensp;尺寸</span><br><button><i style=" width: 2px; height: 2px;"></i></button><button><i style=" width: 4px; height: 4px;"></i></button><button><i style=" width: 6px; height: 6px;"></i></button><button><i style=" width: 8px; height: 8px;"></i></button><button><i style=" width: 10px; height: 10px;"></i></button></div></div><div class="undobtn"><button class="jy_title btn" data-title="撤销"><i class="icon_20"></i></button></div><div class="clearbtn"><button class="jy_title btn" data-title="清空"><i class="icon_20"></i></button></div></div>';
+	var jysvgcon='<div class="hint">在这块区域内绘制你的手写签名</div><div class="svgbox"><svg id="outsvg" xmlns="http://www.w3.org/2000/svg"></svg></div></div>';
 	$('#jysvgsign').append(jysvgcon);
+	var btncon='<div class="btnbox"><div class="colorbtn"><button class="jy_title btn" data-title="颜色"><i class="icon_20"></i></button><div class="celect"><span>&ensp;颜色</span><br><button style=" background: #333333;"></button><button style=" background: #3399ff;"></button><button style=" background: #ffaa33;"></button><button style=" background: #00bb66;"></button><button style=" background: #ee5555;"></button><button style=" background: #772d00;"></button><button style=" background: #ff7799;"></button><button style=" background: #aaff33;"></button><button style=" background: #7744ee;"></button></div></div><div class="typebtn"><button class="jy_title btn" data-title="笔迹"><i class="icon_20"></i></button><div class="celect"><span>&ensp;笔迹</span><br><button data-btn="type1"><i class="icon_20" style="background-position: -200px -140px;"></i></button><button data-btn="type2"><i class="icon_20" style="background-position: -200px -160px;"></i></button></div></div><div class="sizebtn"><button class="jy_title btn" data-title="尺寸"><i class="icon_20"></i></button><div class="celect"><span>&ensp;尺寸</span><br><button><i style=" width: 2px; height: 2px;"></i></button><button><i style=" width: 4px; height: 4px;"></i></button><button><i style=" width: 6px; height: 6px;"></i></button><button><i style=" width: 8px; height: 8px;"></i></button><button><i style=" width: 10px; height: 10px;"></i></button></div></div><div class="undobtn"><button class="jy_title btn" data-title="撤销"><i class="icon_20"></i></button></div><div class="clearbtn"><button class="jy_title btn" data-title="清空"><i class="icon_20"></i></button></div><div class="finishbtn"><button class="jy_title btn" data-title="提交"><i class="icon_20"></i></button></div></div>';
+	$('#jysvgsign').append(btncon);
 	var svgele,context;
 	svgele = document.getElementById('outsvg');
 	var point = {x1:0,y1:0,bx1:0,by1:0,x2:0,y2:0,bx2:0,by2:0,drag:false,notFirst:false};
@@ -337,6 +339,9 @@ function jysvgsign(){
 	});
 	$(document).on('click','#jysvgsign .clearbtn .btn',function(){
 		$('#outsvg path').remove();
+	});
+	$(document).on('click','#jysvgsign .finishbtn .btn',function(){
+		alert($('#jysvgsign #outsvg').html());
 	});
 };
 /*-----手写签名结束-----*/
